@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ogostudio-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "/Users/ogo/Documents/Claude code - Vibe Code/Ogo Studio/ogostudio-site", "-p", "3456", "--no-clipboard"],
+      "port": 3456
+    }
+  ]
+}

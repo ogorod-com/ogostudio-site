@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Ogo Studio</title>
+  <meta name="description" content="Get help with GeoFlag and other Ogo Studio games.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a href="index.html" class="site-logo">Ogo <span>Studio</span></a>
+      <nav>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="credits.html">Credits</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <h1>Support</h1>
+    <p class="subtitle">Having trouble with one of our games? We're here to help.</p>
+
+    <div class="card">
+      <h2 class="mt-0">Frequently asked questions</h2>
+
+      <h3>My progress was lost. Can I recover it?</h3>
+      <p>GeoFlag saves all data locally on your device. If you cleared your browser or app data, the save may not be recoverable. We recommend keeping regular backups by exporting your profile when that feature becomes available.</p>
+
+      <h3>The game won't launch or crashes on startup</h3>
+      <p>Make sure your operating system is up to date. GeoFlag requires macOS 11+ or Windows 10+. If the issue persists, try reinstalling the application and contact us using the form below.</p>
+
+      <h3>How do I earn more coins?</h3>
+      <p>Coins are earned through gameplay — completing levels, achieving high accuracy, maintaining daily streaks, and unlocking achievements. There are no real-money purchases in GeoFlag.</p>
+
+      <h3>I found incorrect geographic information</h3>
+      <p>We take geographic accuracy seriously and follow UN naming standards. If you've spotted an error, please let us know using the form below and we'll investigate.</p>
+    </div>
+
+    <h2>Contact us</h2>
+    <p>Fill out the form below and we'll get back to you as soon as we can.</p>
+
+    <form class="card" action="https://formspree.io/f/mzdybylw" method="POST">
+      <div class="form-group">
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="game">Game</label>
+        <select id="game" name="game">
+          <option value="geoflag">GeoFlag</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" name="category">
+          <option value="bug">Bug report</option>
+          <option value="question">General question</option>
+          <option value="geographic">Geographic accuracy</option>
+          <option value="feature">Feature request</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Describe what happened or what you need help with..." required></textarea>
+      </div>
+
+      <button type="submit">Send message</button>
+    </form>
+
+    <p style="font-size: 13px; color: var(--text-dim); margin-top: 16px;">You can also reach us through the Steam community hub for GeoFlag once it's available.</p>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Ogo Studio. All rights reserved.</p>
+    <p>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="eula.html">EULA</a>
+      <a href="credits.html">Credits</a>
+      <a href="support.html">Support</a>
+    </p>
+  </footer>
+
+</body>
+</html>

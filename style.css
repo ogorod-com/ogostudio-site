@@ -1,0 +1,279 @@
+/* ── Ogo Studio — Shared Styles ── */
+
+:root {
+  --bg:        #0a0a0a;
+  --surface:   #141414;
+  --border:    #222;
+  --text:      #e8e8e8;
+  --text-dim:  #888;
+  --accent:    #e8a838;
+  --accent-hover: #f0b848;
+  --radius:    12px;
+  --max-w:     720px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ── */
+
+.page {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+}
+
+/* ── Header / Nav ── */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.site-logo span {
+  color: var(--accent);
+}
+
+nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 28px;
+  transition: color 0.2s;
+}
+
+nav a:hover { color: var(--text); }
+
+/* ── Typography ── */
+
+h1 {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 48px;
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+p { margin-bottom: 16px; }
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-dim);
+  margin-bottom: 48px;
+}
+
+.effective-date {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 48px;
+}
+
+/* ── Lists ── */
+
+ul, ol {
+  margin: 0 0 16px 24px;
+}
+
+li { margin-bottom: 6px; }
+
+/* ── Links ── */
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+/* ── Cards ── */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+/* ── Hero (landing) ── */
+
+.hero {
+  text-align: center;
+  padding: 120px 24px 80px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.hero .subtitle {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.game-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+  max-width: 480px;
+  margin: 0 auto 48px;
+  text-align: left;
+}
+
+.game-card h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.game-card p {
+  color: var(--text-dim);
+  font-size: 15px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--accent);
+  background: rgba(232, 168, 56, 0.1);
+  border: 1px solid rgba(232, 168, 56, 0.2);
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin-right: 6px;
+  margin-bottom: 8px;
+}
+
+/* ── Support form ── */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+input, textarea, select {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+textarea { resize: vertical; min-height: 120px; }
+
+select { cursor: pointer; }
+
+button {
+  background: var(--accent);
+  color: #0a0a0a;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover { background: var(--accent-hover); }
+
+/* ── Footer ── */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.site-footer a {
+  color: var(--text-dim);
+  margin: 0 12px;
+}
+
+.site-footer a:hover { color: var(--text); }
+
+/* ── Utility ── */
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+/* ── Responsive ── */
+
+.meta {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+
+.card h3:first-child { margin-top: 0; }
+
+/* ── Responsive ── */
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 32px; }
+  .hero { padding: 80px 20px 60px; }
+  .page { padding: 60px 20px 100px; }
+  nav a { margin-left: 16px; font-size: 13px; }
+  .game-card { padding: 28px; }
+}
