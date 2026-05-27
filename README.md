@@ -1,13 +1,16 @@
 # Ogo Studio Website
 
-Static site for Ogo Studio — landing page, legal pages, and support contact.
+Static site for Ogo Studio. Landing page, legal pages, support contact, and dev blog.
 
 ## Pages
 
 - `index.html` — Studio landing page
+- `support.html` — Support contact with FAQ and form
 - `privacy.html` — Privacy policy
 - `eula.html` — End user license agreement
-- `support.html` — Support contact with FAQ and form
+- `credits.html` — Credits and attributions
+- `blog/index.html` — Dev blog index
+- `blog/posts/` — Individual blog post HTML files
 
 ## Stack
 
@@ -15,8 +18,8 @@ Vanilla HTML + CSS. No build step. DM Sans from Google Fonts.
 
 ## Deploy
 
-Static hosting (Vercel, Netlify, GitHub Pages, etc.). No server required.
+Static hosting (GitHub Pages). No server required.
 
 ## Support form
 
-The contact form on `support.html` uses a [Formspree](https://formspree.io) action URL. Replace `FORM_ID` in the form's `action` attribute with your actual Formspree form ID to activate it.
+The contact form on `support.html` posts to Formspree (form ID `mzdybylw`).
