@@ -4,13 +4,13 @@ Static site for Ogo Studio. Landing page, legal pages, support contact, and dev 
 
 ## Pages
 
-- `index.html` — Studio landing page
-- `support.html` — Support contact with FAQ and form
-- `privacy.html` — Privacy policy
-- `eula.html` — End user license agreement
-- `credits.html` — Credits and attributions
-- `blog/index.html` — Dev blog index
-- `blog/posts/` — Individual blog post HTML files
+- `index.html`: Studio landing page
+- `support.html`: Support contact with FAQ and form
+- `privacy.html`: Privacy policy
+- `eula.html`: End user license agreement
+- `credits.html`: Credits and attributions
+- `blog/index.html`: Dev blog index
+- `blog/posts/`: Individual blog post HTML files
 
 ## Stack
 
