@@ -266,7 +266,7 @@ body{font-variant-numeric:tabular-nums;}
 .site-footer{
   position:relative;
   border-top:0.5px solid var(--ogo-line);
-  padding-block:var(--space-8);
+  padding-block:var(--space-6);
 }
 .site-footer__brand{display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6);}
 .site-footer__brand img{width:32px;height:32px;}
@@ -405,11 +405,15 @@ body::before{
    ========================================================================== */
 
 /* ---- Hero (home variant) ---- */
+/* No min-height:100vh -- a centered full-viewport hero left ~240px of dead
+   space below its content before the next section. Hero is content-sized like
+   every other section; it just gets a little more top room under the header.
+   Section rhythm: every section pads 32px block (16px mobile), so every
+   section-to-section gap is a consistent 64px desktop / 32px mobile. */
 .hero--home{
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  display:flex;flex-direction:column;align-items:center;
   text-align:center;
-  padding-block:var(--space-8);
+  padding-top:var(--space-8);padding-bottom:var(--space-6);
 }
 .hero--home .hero-sentinel{position:absolute;top:0;left:0;width:1px;height:1px;}
 .hero__inner{display:flex;flex-direction:column;align-items:center;gap:var(--space-5);}
@@ -457,7 +461,7 @@ body::before{
 }
 
 /* ---- GeoFlag showcase ---- */
-.showcase{padding-block:var(--space-8);border-top:0.5px solid var(--ogo-line);}
+.showcase{padding-block:var(--space-6);border-top:0.5px solid var(--ogo-line);}
 .showcase__inner{display:flex;flex-direction:column;gap:var(--space-5);}
 .showcase h2{font:var(--type-display);font-size:clamp(28px,4vw,40px);}
 .showcase__desc{font:var(--type-body);max-width:60ch;}
@@ -492,9 +496,9 @@ body::before{
 }
 
 /* ---- Studio strip ---- */
-.studio-strip{padding-block:var(--space-8);border-top:0.5px solid var(--ogo-line);}
-.studio-strip__inner{display:grid;grid-template-columns:280px 1fr;gap:var(--space-7);align-items:center;}
-.studio-strip__img img{width:280px;height:auto;image-rendering:pixelated;}
+.studio-strip{padding-block:var(--space-6);border-top:0.5px solid var(--ogo-line);}
+.studio-strip__inner{display:grid;grid-template-columns:200px 1fr;gap:var(--space-7);align-items:center;}
+.studio-strip__img img{width:200px;height:auto;image-rendering:pixelated;}
 .studio-strip__text{display:flex;flex-direction:column;gap:var(--space-4);}
 .studio-strip__text p{font:var(--type-body);max-width:54ch;}
 @media (max-width:767px){
@@ -504,12 +508,16 @@ body::before{
 
 /* ---- Soft close ---- */
 .close{
-  padding-block:var(--space-8);border-top:0.5px solid var(--ogo-line);
+  padding-block:var(--space-6);border-top:0.5px solid var(--ogo-line);
   display:flex;flex-direction:column;align-items:center;gap:var(--space-5);text-align:center;
 }
 .close__lead{font:var(--type-h1);font-family:var(--font-display);font-size:clamp(22px,3vw,30px);max-width:26ch;}
+
+/* ---- Consistent vertical rhythm on mobile: every section pads 16px block
+   (hero a touch more on top), giving a uniform 32px section-to-section gap. ---- */
 @media (max-width:767px){
-  .close{padding-block:var(--space-6);}
+  .showcase,.studio-strip,.close,.site-footer{padding-block:var(--space-4);}
+  .hero--home{padding-top:var(--space-6);padding-bottom:var(--space-4);}
 }
 
 /* ---- Scroll-driven reveals (showcase + studio strip) ----
