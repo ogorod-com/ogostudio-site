@@ -512,15 +512,22 @@ body::before{
   .close{padding-block:var(--space-6);}
 }
 
-/* ---- Scroll-driven reveals (showcase + studio strip). Opacity:0 lives ONLY
-   inside this guarded block, so unsupported / reduced-motion shows content. ---- */
-@keyframes reveal-in{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+/* ---- Scroll-driven reveals (showcase + studio strip) ----
+   PROGRESSIVE ENHANCEMENT, hard rule: content is fully visible at rest. The
+   reveal is TRANSFORM-ONLY (a small slide-up); opacity is never touched, so
+   nothing here can ever hide a section. Previous version set opacity:0 and
+   relied on the view() timeline to animate it back to 1 -- but a below-fold
+   element whose timeline never advances (some WebKit builds report
+   animation-timeline support via @supports yet never run the animation) stayed
+   stuck at opacity:0, making the showcase + studio strip permanently invisible.
+   Worst case now: an element sits 16px lower than final. Always readable. */
+@keyframes reveal-in{from{transform:translateY(16px);}to{transform:translateY(0);}}
 @supports (animation-timeline:view()){
   @media (prefers-reduced-motion:no-preference){
-    .reveal{opacity:0;animation:reveal-in linear both;animation-timeline:view();animation-range:entry 0% entry 45%;}
-    .reveal.r2{animation-range:entry 8% entry 50%;}
-    .reveal.r3{animation-range:entry 16% entry 56%;}
-    .reveal.r4{animation-range:entry 24% entry 62%;}
-    .reveal.r5{animation-range:entry 32% entry 68%;}
+    .reveal{animation:reveal-in linear both;animation-timeline:view();animation-range:entry 0% cover 22%;}
+    .reveal.r2{animation-range:entry 6% cover 26%;}
+    .reveal.r3{animation-range:entry 12% cover 30%;}
+    .reveal.r4{animation-range:entry 18% cover 34%;}
+    .reveal.r5{animation-range:entry 24% cover 38%;}
   }
 }
