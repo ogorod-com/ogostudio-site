@@ -213,7 +213,9 @@ body{font-variant-numeric:tabular-nums;}
   min-height:64px;
 }
 .site-header__brand{display:inline-flex;align-items:center;}
-.site-header__brand img{width:160px;height:auto;}
+/* Lockup asset is square (1024x1024), so size by HEIGHT to fit the bar.
+   Sizing by width would render it 160px tall and dominate the header. */
+.site-header__brand img{height:52px;width:auto;}
 .site-header__nav{display:flex;align-items:center;gap:var(--space-6);}
 .site-header__nav a{
   font:var(--type-small);color:var(--ogo-text-muted);
@@ -241,7 +243,7 @@ body{font-variant-numeric:tabular-nums;}
 
 /* Mobile drawer (collapsed nav) */
 @media (max-width:767px){
-  .site-header__brand img{width:120px;}
+  .site-header__brand img{height:44px;}
   .site-header__menu{display:inline-flex;}
   .site-header__nav{
     position:absolute;top:100%;left:0;right:0;
@@ -264,7 +266,6 @@ body{font-variant-numeric:tabular-nums;}
 .site-footer{
   position:relative;
   border-top:0.5px solid var(--ogo-line);
-  margin-top:var(--space-8);
   padding-block:var(--space-8);
 }
 .site-footer__brand{display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6);}
@@ -460,7 +461,9 @@ body::before{
 .showcase__inner{display:flex;flex-direction:column;gap:var(--space-5);}
 .showcase h2{font:var(--type-display);font-size:clamp(28px,4vw,40px);}
 .showcase__desc{font:var(--type-body);max-width:60ch;}
-.showcase__shot{max-width:880px;border-radius:var(--radius-hero);overflow:hidden;align-self:flex-start;}
+/* width:100% is load-bearing: without it WebKit sizes this flex item to the
+   image's intrinsic width (1920px) and overflows the viewport on mobile. */
+.showcase__shot{width:100%;max-width:880px;border-radius:var(--radius-hero);overflow:hidden;align-self:flex-start;}
 .showcase__shot img{display:block;width:100%;height:auto;border-radius:var(--radius-hero);border:0.5px solid var(--ogo-line);}
 
 .mode-chips{display:flex;flex-wrap:wrap;gap:var(--space-2);list-style:none;padding:0;}
@@ -471,16 +474,21 @@ body::before{
 }
 .mode-chip::before{content:"\25B8";color:var(--ogo-text-muted);margin-right:var(--space-1);}
 
-/* Horizontal scroll-snap gallery; uniform height, natural widths (no crop) */
+/* Horizontal scroll-snap gallery. Items are sized by WIDTH (a fixed desktop
+   width / a share of the viewport on mobile), never by the image's natural
+   width, so they can never overflow. Heights follow each shot's ratio. */
 .screenshot-gallery{
-  display:flex;gap:var(--space-4);
+  display:flex;gap:var(--space-4);align-items:flex-start;
   overflow-x:auto;scroll-snap-type:x mandatory;
   padding-bottom:var(--space-3);overscroll-behavior-x:contain;
 }
-.screenshot-gallery > picture{flex:0 0 auto;scroll-snap-align:center;}
+.screenshot-gallery > picture{flex:0 0 auto;scroll-snap-align:center;width:480px;max-width:85vw;}
 .screenshot-gallery img{
-  display:block;height:clamp(220px,42vh,400px);width:auto;
+  display:block;width:100%;height:auto;
   border-radius:var(--radius-card);border:0.5px solid var(--ogo-line);
+}
+@media (max-width:767px){
+  .screenshot-gallery > picture{width:85vw;}
 }
 
 /* ---- Studio strip ---- */
@@ -500,6 +508,9 @@ body::before{
   display:flex;flex-direction:column;align-items:center;gap:var(--space-5);text-align:center;
 }
 .close__lead{font:var(--type-h1);font-family:var(--font-display);font-size:clamp(22px,3vw,30px);max-width:26ch;}
+@media (max-width:767px){
+  .close{padding-block:var(--space-6);}
+}
 
 /* ---- Scroll-driven reveals (showcase + studio strip). Opacity:0 lives ONLY
    inside this guarded block, so unsupported / reduced-motion shows content. ---- */
