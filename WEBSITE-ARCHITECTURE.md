@@ -253,7 +253,7 @@ All are native browser features. No libraries.
 | Bouncy / elastic easings | Brand book §9.4 prohibits |
 | Cursor trails | 2014 portfolio energy |
 | Liquid blob morphs | Off-brand |
-| Custom font loaders | Google Fonts `display=swap` is sufficient |
+| Custom font loaders | Self-hosted WOFF2 with font-display: swap is sufficient. Adding a loader like Fontaine or Fontsource is unjustified for three families. |
 | jQuery | Year is 2026 |
 | Tailwind | Adds a build step, contradicts decision 3 |
 | React, Vue, Svelte | Brochure site, no state, contradicts decision 1 |

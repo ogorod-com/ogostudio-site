@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "ogostudio-site",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "/Users/ogo/Documents/Claude code - Vibe Code/Ogo Studio/ogostudio-site", "-p", "3456", "--no-clipboard"],
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "/Users/ogo/Documents/Ogo Studio/Ogostudio Site"],
       "port": 3456
     }
   ]
