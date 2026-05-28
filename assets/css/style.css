@@ -395,3 +395,121 @@ body::before{
   .glow-pulse::before{animation:none;--glow-alpha:0.16;}
   .hero::after{display:none;}
 }
+
+/* ==========================================================================
+   === LANDING (index.html) ===
+   Styles specific to the rebuilt landing page. Tokens only, no new colors
+   or fonts. Scroll reveals + load fade are progressive enhancement: every
+   block is fully visible if @supports / JS / motion are unavailable.
+   ========================================================================== */
+
+/* ---- Hero (home variant) ---- */
+.hero--home{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  padding-block:var(--space-8);
+}
+.hero--home .hero-sentinel{position:absolute;top:0;left:0;width:1px;height:1px;}
+.hero__inner{display:flex;flex-direction:column;align-items:center;gap:var(--space-5);}
+.hero h1{
+  font:var(--type-display);
+  font-size:clamp(34px,6vw,60px);line-height:1.08;letter-spacing:-0.02em;
+  max-width:18ch;
+}
+.hero h1 .line{display:block;}
+.hero__subline{
+  font:var(--type-body);font-size:clamp(16px,2.2vw,19px);
+  color:var(--ogo-text-muted);max-width:48ch;
+}
+.status-block{
+  font:var(--type-mono);color:var(--ogo-text-muted);
+  display:flex;flex-direction:column;gap:var(--space-1);align-items:center;
+}
+
+/* Cyan tinted headline line with a soft animated halo */
+@property --halo-alpha{syntax:'<number>';inherits:false;initial-value:0.18;}
+.glow-text{color:var(--ogo-glow);text-shadow:0 0 28px rgb(82 226 208 / var(--halo-alpha,0.18));}
+@media (prefers-reduced-motion:no-preference){
+  .glow-text{animation:glow-text-pulse 4s ease-in-out infinite alternate;}
+}
+@keyframes glow-text-pulse{from{--halo-alpha:0.12;}to{--halo-alpha:0.42;}}
+
+/* ---- Shared CTA row ---- */
+.cta-row{display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center;}
+.cta-row .btn{font-size:15px;padding:var(--space-3) var(--space-6);}
+@media (max-width:520px){
+  .cta-row{flex-direction:column;align-items:stretch;width:100%;max-width:320px;margin-inline:auto;}
+  .cta-row .btn{justify-content:center;}
+}
+
+/* ---- Page-load fade-in for the hero (JS + motion only; safe fallback) ---- */
+@media (prefers-reduced-motion:no-preference){
+  html.js .hero__inner > *{opacity:0;transform:translateY(12px);}
+  html.js body.loaded .hero__inner > *{
+    opacity:1;transform:none;
+    transition:opacity .6s ease-out,transform .6s ease-out;
+  }
+  html.js body.loaded .hero__inner > *:nth-child(2){transition-delay:.08s;}
+  html.js body.loaded .hero__inner > *:nth-child(3){transition-delay:.16s;}
+  html.js body.loaded .hero__inner > *:nth-child(4){transition-delay:.24s;}
+}
+
+/* ---- GeoFlag showcase ---- */
+.showcase{padding-block:var(--space-8);border-top:0.5px solid var(--ogo-line);}
+.showcase__inner{display:flex;flex-direction:column;gap:var(--space-5);}
+.showcase h2{font:var(--type-display);font-size:clamp(28px,4vw,40px);}
+.showcase__desc{font:var(--type-body);max-width:60ch;}
+.showcase__shot{max-width:880px;border-radius:var(--radius-hero);overflow:hidden;align-self:flex-start;}
+.showcase__shot img{display:block;width:100%;height:auto;border-radius:var(--radius-hero);border:0.5px solid var(--ogo-line);}
+
+.mode-chips{display:flex;flex-wrap:wrap;gap:var(--space-2);list-style:none;padding:0;}
+.mode-chip{
+  font:var(--type-micro);text-transform:uppercase;letter-spacing:0.06em;
+  color:var(--ogo-text);border:0.5px solid var(--ogo-line);
+  border-radius:var(--radius-tile);padding:var(--space-2) var(--space-3);
+}
+.mode-chip::before{content:"\25B8";color:var(--ogo-text-muted);margin-right:var(--space-1);}
+
+/* Horizontal scroll-snap gallery; uniform height, natural widths (no crop) */
+.screenshot-gallery{
+  display:flex;gap:var(--space-4);
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:var(--space-3);overscroll-behavior-x:contain;
+}
+.screenshot-gallery > picture{flex:0 0 auto;scroll-snap-align:center;}
+.screenshot-gallery img{
+  display:block;height:clamp(220px,42vh,400px);width:auto;
+  border-radius:var(--radius-card);border:0.5px solid var(--ogo-line);
+}
+
+/* ---- Studio strip ---- */
+.studio-strip{padding-block:var(--space-8);border-top:0.5px solid var(--ogo-line);}
+.studio-strip__inner{display:grid;grid-template-columns:280px 1fr;gap:var(--space-7);align-items:center;}
+.studio-strip__img img{width:280px;height:auto;image-rendering:pixelated;}
+.studio-strip__text{display:flex;flex-direction:column;gap:var(--space-4);}
+.studio-strip__text p{font:var(--type-body);max-width:54ch;}
+@media (max-width:767px){
+  .studio-strip__inner{grid-template-columns:1fr;gap:var(--space-5);}
+  .studio-strip__img img{width:200px;}
+}
+
+/* ---- Soft close ---- */
+.close{
+  padding-block:var(--space-8);border-top:0.5px solid var(--ogo-line);
+  display:flex;flex-direction:column;align-items:center;gap:var(--space-5);text-align:center;
+}
+.close__lead{font:var(--type-h1);font-family:var(--font-display);font-size:clamp(22px,3vw,30px);max-width:26ch;}
+
+/* ---- Scroll-driven reveals (showcase + studio strip). Opacity:0 lives ONLY
+   inside this guarded block, so unsupported / reduced-motion shows content. ---- */
+@keyframes reveal-in{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;animation:reveal-in linear both;animation-timeline:view();animation-range:entry 0% entry 45%;}
+    .reveal.r2{animation-range:entry 8% entry 50%;}
+    .reveal.r3{animation-range:entry 16% entry 56%;}
+    .reveal.r4{animation-range:entry 24% entry 62%;}
+    .reveal.r5{animation-range:entry 32% entry 68%;}
+  }
+}

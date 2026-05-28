@@ -10,6 +10,14 @@
    (CTA visible, nav usable). */
 document.documentElement.classList.add('js');
 
+/* Page-load fade-in: add `.loaded` to <body> after the first paint so the
+   hero's hidden start state renders before the transition runs. CSS gates the
+   effect behind html.js + prefers-reduced-motion, so no-JS / reduced-motion
+   users simply see the content immediately. */
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  document.body.classList.add('loaded');
+}));
+
 /* --------------------------------------------------------------------------
    1. Cursor spotlight on the hero
    Updates --cursor-x / --cursor-y (in px, relative to the hero box). Throttled
