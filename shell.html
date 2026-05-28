@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shell preview · Ogo Studio</title>
+  <meta name="description" content="Internal shell preview for the Ogo Studio site rebuild. Verifies design tokens, header, footer, and the motion system before real pages get built.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shell preview · Ogo Studio">
+  <meta property="og:description" content="Internal shell preview for the Ogo Studio site rebuild.">
+  <meta property="og:image" content="https://ogorod-com.github.io/ogostudio-site/assets/og/og-default.png">
+  <meta property="og:url" content="https://ogorod-com.github.io/ogostudio-site/shell.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shell preview · Ogo Studio">
+  <meta name="twitter:description" content="Internal shell preview for the Ogo Studio site rebuild.">
+  <meta name="twitter:image" content="https://ogorod-com.github.io/ogostudio-site/assets/og/og-default.png">
+
+  <link rel="canonical" href="https://ogorod-com.github.io/ogostudio-site/shell.html">
+  <!-- Favicon set is generated with the landing build; the studio mark stands in for now. -->
+  <link rel="icon" type="image/png" href="assets/logo/ogo-mark.png">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="assets/js/enhance.js" defer></script>
+</head>
+<body>
+
+  <!-- Skip link: first focusable element on the page -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__brand" aria-label="Ogo Studio home">
+        <img src="assets/logo/ogo-studio-lockup.png" alt="Ogo Studio" width="160" height="48">
+      </a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a href="index.html">Games</a>
+        <a href="about.html">About</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="press.html">Press</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <div class="site-header__controls">
+        <!-- TRUTH: STUDIO.md Steam app IDs — full game 4628800 -->
+        <a class="btn btn--primary site-header__cta"
+           href="https://store.steampowered.com/app/4628800"
+           target="_blank" rel="noopener noreferrer">Wishlist</a>
+        <button class="site-header__menu" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="hero">
+    <!-- Sentinel: when this scrolls out of view, the header Wishlist CTA fades in -->
+    <div class="hero-sentinel" aria-hidden="true"></div>
+
+    <div class="container stack" style="--stack-gap:var(--space-5)">
+      <p class="eyebrow">Shell preview</p>
+      <h1>Foundation, before the rooms get furnished</h1>
+      <p class="lede">Shell preview. This page exists to verify tokens, header, footer, and motion before the real pages get built.</p>
+    </div>
+
+    <!-- Color tokens -->
+    <section class="container section" aria-labelledby="swatches-title">
+      <h2 id="swatches-title">Color tokens</h2>
+      <p class="t-small lede" style="margin-bottom:var(--space-5)">Every <span class="t-mono">--ogo-*</span> and <span class="t-mono">--ui-*</span> token from Brand Book v0.3.</p>
+      <ul class="swatch-grid" role="list">
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-bg)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-bg</div><div class="swatch__hex">#000000</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-bg-deep)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-bg-deep</div><div class="swatch__hex">#0a0c0e</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-glow)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-glow</div><div class="swatch__hex">#52E2D0</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-glow-soft)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-glow-soft</div><div class="swatch__hex">rgba(82,226,208,.15)</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-beet)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-beet</div><div class="swatch__hex">#95113B</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-beet-light)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-beet-light</div><div class="swatch__hex">#C2185B</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-beet-deep)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-beet-deep</div><div class="swatch__hex">#6A1040</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-leaf)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-leaf</div><div class="swatch__hex">#96D64E</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-leaf-deep)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-leaf-deep</div><div class="swatch__hex">#93B83A</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-earth)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-earth</div><div class="swatch__hex">#56441F</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-text)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-text</div><div class="swatch__hex">#FFFFFF</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-text-muted)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-text-muted</div><div class="swatch__hex">#9A9EA3</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ogo-line)"></div><div class="swatch__meta"><div class="swatch__name">--ogo-line</div><div class="swatch__hex">rgba(255,255,255,.06)</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ui-success)"></div><div class="swatch__meta"><div class="swatch__name">--ui-success</div><div class="swatch__hex">#6AB07A</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ui-warning)"></div><div class="swatch__meta"><div class="swatch__name">--ui-warning</div><div class="swatch__hex">#E8A838</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ui-danger)"></div><div class="swatch__meta"><div class="swatch__name">--ui-danger</div><div class="swatch__hex">#D86A5C</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ui-panel)"></div><div class="swatch__meta"><div class="swatch__name">--ui-panel</div><div class="swatch__hex">#14171B</div></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:var(--ui-panel-2)"></div><div class="swatch__meta"><div class="swatch__name">--ui-panel-2</div><div class="swatch__hex">#1A1E23</div></div></li>
+      </ul>
+    </section>
+
+    <!-- Type specimen -->
+    <section class="container section" aria-labelledby="type-title">
+      <h2 id="type-title">Type scale</h2>
+      <div class="specimen" style="margin-top:var(--space-5)">
+        <div class="specimen__row"><span class="specimen__label">--type-display · Space Grotesk 32/500</span><span class="t-display">Games for curious players</span></div>
+        <div class="specimen__row"><span class="specimen__label">--type-h1 · Space Grotesk 22/500</span><span class="t-h1">A steady hand behind the curtain</span></div>
+        <div class="specimen__row"><span class="specimen__label">--type-h2 · DM Sans 16/500</span><span class="t-h2">What is shipping, and when</span></div>
+        <div class="specimen__row"><span class="specimen__label">--type-body · DM Sans 16/400</span><span class="t-body">The quick brown fox jumps over the lazy dog, then tends the garden. 0123456789</span></div>
+        <div class="specimen__row"><span class="specimen__label">--type-small · DM Sans 14/400</span><span class="t-small">Secondary labels and meta information. 0123456789</span></div>
+        <div class="specimen__row"><span class="specimen__label">--type-micro · DM Sans 11/500</span><span class="t-micro">Eyebrow label</span></div>
+        <div class="specimen__row"><span class="specimen__label">--type-mono · JetBrains Mono 14/400</span><span class="t-mono">BuildID 23398333 · #52E2D0 · 2026-05-28</span></div>
+      </div>
+    </section>
+
+    <!-- Buttons -->
+    <section class="container section" aria-labelledby="btn-title">
+      <h2 id="btn-title">Buttons</h2>
+      <div class="btn-row" style="margin-top:var(--space-5)">
+        <button class="btn btn--primary" type="button">Primary action</button>
+        <button class="btn btn--secondary" type="button">Secondary action</button>
+        <a class="btn btn--secondary" href="#main">Link styled as button</a>
+      </div>
+    </section>
+
+    <!-- Motion -->
+    <section class="container section" aria-labelledby="motion-title">
+      <h2 id="motion-title">Motion</h2>
+      <p class="t-small lede" style="margin-bottom:var(--space-5)">Glow pulse, 4s ease-in-out infinite alternate. Disabled under reduced motion.</p>
+      <span class="glow-demo glow-pulse">Ogo Studio</span>
+    </section>
+
+    <!-- Filler to enable scrolling so the sticky header CTA can be tested -->
+    <section class="container section" aria-labelledby="scroll-title">
+      <h2 id="scroll-title">Scroll test</h2>
+      <p class="filler">Scroll down. Once the sentinel at the top of the hero leaves the viewport, the Wishlist button fades into the header bar. Scroll back up and it fades out again. With JavaScript disabled the button simply stays visible, which is the safe default.</p>
+      <p class="filler">This noise you faintly see across the canvas is an inline SVG fractal-noise overlay at five percent opacity. No image request, no library. It gives true black a printed, tactile feel rather than a flat digital void.</p>
+      <p class="filler">On a desktop pointer, a soft cyan spotlight follows the cursor inside this hero region only. It sits behind the text, never washing it out, and it is switched off entirely on touch devices and under reduced motion.</p>
+      <p class="filler">Headings are Space Grotesk. Body is DM Sans. Hex values, build IDs, and timestamps are JetBrains Mono. All three families are self-hosted, so the page makes zero external network requests.</p>
+      <p class="filler">Spacing follows a four pixel base. Borders are hairline. Elevation comes from background brightness, never from shadow. The single accent is cyan. The beet palette belongs to the mascot, never to type.</p>
+      <p class="filler">When the real pages arrive, this shell gets deleted. Until then it is the proving ground for the foundation everything else stands on.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__brand">
+        <img src="assets/logo/ogo-mark.png" alt="" width="32" height="32">
+        <span>Ogo Studio</span>
+      </div>
+
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <h2>Play</h2>
+          <ul role="list">
+            <!-- TRUTH: STUDIO.md Steam app IDs — demo 4675110 -->
+            <li><a href="https://store.steampowered.com/app/4675110" target="_blank" rel="noopener noreferrer">Demo on Steam</a></li>
+            <li><a href="https://store.steampowered.com/app/4628800" target="_blank" rel="noopener noreferrer">Wishlist</a></li>
+            <li><a href="https://store.steampowered.com/developer/ogostudio" target="_blank" rel="noopener noreferrer">Dev page</a></li>
+            <li><a href="https://steamcommunity.com/groups/ogostudio" target="_blank" rel="noopener noreferrer">Community</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2>Studio</h2>
+          <ul role="list">
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2>Legal</h2>
+          <ul role="list">
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="eula.html">EULA</a></li>
+            <li><a href="credits.html">Credits</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="site-footer__legal">&copy; 2026 Ogo Studio</p>
+    </div>
+
+    <img class="site-footer__beet" src="assets/beet/beet-sleeping.png" alt="" aria-hidden="true">
+  </footer>
+
+</body>
+</html>
