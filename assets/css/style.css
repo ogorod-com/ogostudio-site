@@ -546,3 +546,36 @@ body::before{
     .reveal.r5{animation-range:entry 24% cover 38%;}
   }
 }
+
+/* ==========================================================================
+   === ABOUT PAGE (about.html) ===
+   Reuses the shell + landing patterns (.container, .cta-row, buttons, .close
+   with margin-inline:auto centering, .reveal). Only the intro/why/studio/facts
+   need rules. Section rhythm matches the landing: --space-6 desktop / --space-4
+   mobile, with the first section getting a little more top room under the header.
+   ========================================================================== */
+.about-intro{padding-top:var(--space-8);padding-bottom:var(--space-6);}
+.about-intro__inner{display:grid;grid-template-columns:200px 1fr;gap:var(--space-7);align-items:center;}
+.about-intro__img img{width:200px;height:auto;image-rendering:pixelated;}
+.about-intro__text{display:flex;flex-direction:column;gap:var(--space-4);}
+.about-intro__text p{max-width:60ch;}
+
+.about-why,.about-studio,.about-facts{padding-block:var(--space-6);border-top:0.5px solid var(--ogo-line);}
+.about-why .container,.about-studio .container{display:flex;flex-direction:column;gap:var(--space-4);}
+.about-why p,.about-studio p{max-width:62ch;}
+
+/* Quiet key/value facts strip: JetBrains Mono, muted keys, tabular figures */
+.about-facts dl{
+  display:grid;grid-template-columns:max-content 1fr;
+  column-gap:var(--space-7);row-gap:var(--space-2);
+  font:var(--type-mono);max-width:max-content;
+}
+.about-facts dt{color:var(--ogo-text-muted);}
+.about-facts dd{margin:0;color:var(--ogo-text);}
+
+@media (max-width:767px){
+  .about-intro{padding-top:var(--space-6);padding-bottom:var(--space-4);}
+  .about-why,.about-studio,.about-facts{padding-block:var(--space-4);}
+  .about-intro__inner{grid-template-columns:1fr;gap:var(--space-5);}
+  .about-intro__img img{width:160px;}
+}
