@@ -213,9 +213,11 @@ body{font-variant-numeric:tabular-nums;}
   min-height:64px;
 }
 .site-header__brand{display:inline-flex;align-items:center;}
-/* Lockup asset is square (1024x1024), so size by HEIGHT to fit the bar.
-   Sizing by width would render it 160px tall and dominate the header. */
-.site-header__brand img{height:52px;width:auto;}
+/* Readable wordmark size (restored). The square 1024x1024 lockup renders
+   160px tall here; a faint edge may show on true black because the asset is
+   flattened-to-near-black (not transparent). Readability wins for now; the
+   real fix is a transparent-background regeneration (tracked in TODO). */
+.site-header__brand img{width:160px;height:auto;}
 .site-header__nav{display:flex;align-items:center;gap:var(--space-6);}
 .site-header__nav a{
   font:var(--type-small);color:var(--ogo-text-muted);
@@ -243,7 +245,7 @@ body{font-variant-numeric:tabular-nums;}
 
 /* Mobile drawer (collapsed nav) */
 @media (max-width:767px){
-  .site-header__brand img{height:44px;}
+  .site-header__brand img{width:120px;}
   .site-header__menu{display:inline-flex;}
   .site-header__nav{
     position:absolute;top:100%;left:0;right:0;
@@ -512,6 +514,11 @@ body::before{
   display:flex;flex-direction:column;align-items:center;gap:var(--space-5);text-align:center;
 }
 .close__lead{font:var(--type-h1);font-family:var(--font-display);font-size:clamp(22px,3vw,30px);max-width:26ch;}
+/* Horizontal centering only. The close children are max-width blocks; without
+   auto inline-margins they sit left-aligned and text-align:center merely
+   centers text inside that left box. margin-inline:auto centers the boxes.
+   No vertical effect (inline margins only) -- section rhythm untouched. */
+.close .container > *{margin-inline:auto;}
 
 /* ---- Consistent vertical rhythm on mobile: every section pads 16px block
    (hero a touch more on top), giving a uniform 32px section-to-section gap. ---- */
