@@ -564,18 +564,60 @@ body::before{
 .about-why .container,.about-studio .container{display:flex;flex-direction:column;gap:var(--space-4);}
 .about-why p,.about-studio p{max-width:62ch;}
 
-/* Quiet key/value facts strip: JetBrains Mono, muted keys, tabular figures */
-.about-facts dl{
+/* Quiet key/value facts strip: JetBrains Mono, muted keys, tabular figures.
+   Shared by the About facts and the Press fast-facts + contact strips. */
+.about-facts dl,.press-facts dl,.press-contact dl{
   display:grid;grid-template-columns:max-content 1fr;
   column-gap:var(--space-7);row-gap:var(--space-2);
   font:var(--type-mono);max-width:max-content;
 }
-.about-facts dt{color:var(--ogo-text-muted);}
-.about-facts dd{margin:0;color:var(--ogo-text);}
+.about-facts dt,.press-facts dt,.press-contact dt{color:var(--ogo-text-muted);}
+.about-facts dd,.press-facts dd,.press-contact dd{margin:0;color:var(--ogo-text);}
 
 @media (max-width:767px){
   .about-intro{padding-top:var(--space-6);padding-bottom:var(--space-4);}
   .about-why,.about-studio,.about-facts{padding-block:var(--space-4);}
   .about-intro__inner{grid-template-columns:1fr;gap:var(--space-5);}
   .about-intro__img img{width:160px;}
+}
+
+/* ==========================================================================
+   === PRESS KIT PAGE (press.html) ===
+   Reuses the shell + landing/about patterns (.container, .screenshot-gallery,
+   .cta-row, buttons, .reveal, the facts-strip dl above). Section rhythm matches
+   the rest of the site: --space-6 desktop / --space-4 mobile, first section
+   gets more top room under the header.
+   ========================================================================== */
+.press-hero{padding-top:var(--space-8);padding-bottom:var(--space-6);}
+.press-hero__inner{display:grid;grid-template-columns:200px 1fr;gap:var(--space-7);align-items:center;}
+.press-hero__img img{width:200px;height:auto;image-rendering:pixelated;}
+.press-hero__text{display:flex;flex-direction:column;gap:var(--space-4);}
+.press-hero__text p{max-width:60ch;}
+
+.press-facts,.press-about-game,.press-keyfacts,.press-screenshots,.press-logos,.press-contact{
+  padding-block:var(--space-6);border-top:0.5px solid var(--ogo-line);
+}
+.press-facts .container,.press-about-game .container,.press-keyfacts .container,.press-screenshots .container,.press-logos .container,.press-contact .container{
+  display:flex;flex-direction:column;gap:var(--space-4);
+}
+.press-about-game p{max-width:62ch;}
+
+/* Key facts: simple bulleted list with a cyan triangle marker */
+.press-keyfacts ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--space-2);max-width:64ch;}
+.press-keyfacts li{position:relative;padding-left:var(--space-5);}
+.press-keyfacts li::before{content:"\25B8";position:absolute;left:0;color:var(--ogo-glow);}
+
+.press-note{font:var(--type-small);color:var(--ogo-text-muted);max-width:64ch;}
+.press-downloads{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-5);}
+
+.press-logos__grid{display:flex;flex-wrap:wrap;gap:var(--space-7);align-items:flex-end;}
+.press-logo{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2);}
+.press-logo__wordmark{width:200px;height:auto;}
+.press-logo__icon{width:64px;height:64px;}
+
+@media (max-width:767px){
+  .press-hero{padding-top:var(--space-6);padding-bottom:var(--space-4);}
+  .press-facts,.press-about-game,.press-keyfacts,.press-screenshots,.press-logos,.press-contact{padding-block:var(--space-4);}
+  .press-hero__inner{grid-template-columns:1fr;gap:var(--space-5);}
+  .press-hero__img img{width:160px;}
 }
