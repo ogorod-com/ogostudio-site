@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ogorod-com.github.io/ogostudio-site/sitemap.xml
