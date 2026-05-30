@@ -3,60 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dev Blog — Ogo Studio</title>
-  <meta name="description" content="Short notes from the making of GeoFlag.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+  <title>Dev blog · Ogo Studio</title>
+  <meta name="description" content="Notes from building GeoFlag and running Ogo Studio.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dev blog · Ogo Studio">
+  <meta property="og:description" content="Notes from building GeoFlag and running Ogo Studio.">
+  <meta property="og:image" content="https://ogorod-com.github.io/ogostudio-site/assets/og/og-default.png">
+  <meta property="og:url" content="https://ogorod-com.github.io/ogostudio-site/blog/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dev blog · Ogo Studio">
+  <meta name="twitter:description" content="Notes from building GeoFlag and running Ogo Studio.">
+  <meta name="twitter:image" content="https://ogorod-com.github.io/ogostudio-site/assets/og/og-default.png">
+
+  <link rel="canonical" href="https://ogorod-com.github.io/ogostudio-site/blog/">
+  <link rel="icon" type="image/png" href="../assets/logo/ogo-mark.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module" src="../assets/js/enhance.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
-    <div class="inner">
-      <a href="../index.html" class="site-logo">Ogo <span>Studio</span></a>
-      <nav>
+    <div class="container site-header__inner">
+      <a href="../index.html" class="site-header__brand" aria-label="Ogo Studio home">
+        <img src="../assets/logo/ogo-studio-lockup.png" alt="Ogo Studio" width="160" height="160">
+      </a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a href="../index.html">Games</a>
+        <a href="../about.html">About</a>
         <a href="index.html">Blog</a>
+        <a href="../press.html">Press</a>
         <a href="../support.html">Support</a>
-        <a href="../privacy.html">Privacy</a>
-        <a href="../eula.html">EULA</a>
-        <a href="../credits.html">Credits</a>
       </nav>
+      <div class="site-header__controls">
+        <!-- TRUTH: STUDIO.md Steam app IDs — full game 4628800 -->
+        <a class="btn btn--primary site-header__cta" href="https://store.steampowered.com/app/4628800" target="_blank" rel="noopener noreferrer">Wishlist</a>
+        <button class="site-header__menu" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main class="page">
-    <h1>Ogo Studio — Dev Blog</h1>
-    <p class="subtitle">Short notes from the making of GeoFlag.</p>
+  <main id="main">
+    <div class="container page-main">
+      <div class="prose">
+        <h1>Dev blog</h1>
+        <p>Notes from building GeoFlag and running Ogo Studio.</p>
+      </div>
 
-    <!--
-      Posts list. Reverse chronological (newest on top).
-
-      Template for a post entry:
-
-      <article class="card">
-        <h2 class="mt-0"><a href="posts/SLUG.html">Post title</a></h2>
-        <p class="meta">Month Day, Year</p>
-        <p>1–2 line excerpt that appears on the blog index.</p>
-      </article>
-    -->
-    <div class="post-list">
-      <article class="card">
-        <h2 class="mt-0"><a href="posts/2026-05-25-why-i-made-geoflag.html">Why I made GeoFlag — a small studio's first step</a></h2>
-        <p class="meta">May 25, 2026</p>
-        <p>GeoFlag's demo is now on Steam. A note about why I built it, who inspired it, and where Ogo Studio is going next.</p>
-      </article>
+      <div class="blog-list">
+        <article class="blog-post">
+          <p class="blog-post__date">2026-05-25</p>
+          <h2 class="blog-post__title"><a href="posts/2026-05-25-why-i-made-geoflag.html">Why I made GeoFlag</a></h2>
+          <p class="blog-post__excerpt">GeoFlag's demo is on Steam. Why I built it, who inspired it, and where Ogo Studio is going next.</p>
+        </article>
+      </div>
     </div>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Ogo Studio. All rights reserved.</p>
-    <p>
-      <a href="../privacy.html">Privacy policy</a>
-      <a href="../eula.html">EULA</a>
-      <a href="../credits.html">Credits</a>
-      <a href="../support.html">Support</a>
-    </p>
+    <div class="container">
+      <div class="site-footer__brand">
+        <img src="../assets/logo/ogo-mark.png" alt="" width="32" height="32">
+        <span>Ogo Studio</span>
+      </div>
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <h2>Play</h2>
+          <ul role="list">
+            <!-- TRUTH: STUDIO.md Steam app IDs — demo 4675110 -->
+            <li><a href="https://store.steampowered.com/app/4675110" target="_blank" rel="noopener noreferrer">Demo on Steam</a></li>
+            <li><a href="https://store.steampowered.com/app/4628800" target="_blank" rel="noopener noreferrer">Wishlist</a></li>
+            <li><a href="https://store.steampowered.com/developer/ogostudio" target="_blank" rel="noopener noreferrer">Dev page</a></li>
+            <li><a href="https://steamcommunity.com/groups/ogostudio" target="_blank" rel="noopener noreferrer">Community</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2>Studio</h2>
+          <ul role="list">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../press.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2>Legal</h2>
+          <ul role="list">
+            <li><a href="../privacy.html">Privacy</a></li>
+            <li><a href="../eula.html">EULA</a></li>
+            <li><a href="../credits.html">Credits</a></li>
+            <li><a href="../support.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__legal">&copy; 2026 Ogo Studio</p>
+    </div>
+    <img class="site-footer__beet" src="../assets/beet/beet-sleeping.png" alt="" aria-hidden="true">
   </footer>
 
 </body>

@@ -3,95 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support — Ogo Studio</title>
-  <meta name="description" content="Get help with GeoFlag and other Ogo Studio games.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Support · Ogo Studio</title>
+  <meta name="description" content="Help with GeoFlag: system requirements, saves, coins, geographic accuracy, and how to reach Ogo Studio.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Support · Ogo Studio">
+  <meta property="og:description" content="Help with GeoFlag: system requirements, saves, coins, geographic accuracy, and how to reach Ogo Studio.">
+  <meta property="og:image" content="https://ogorod-com.github.io/ogostudio-site/assets/og/og-default.png">
+  <meta property="og:url" content="https://ogorod-com.github.io/ogostudio-site/support.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support · Ogo Studio">
+  <meta name="twitter:description" content="Help with GeoFlag and how to reach Ogo Studio.">
+  <meta name="twitter:image" content="https://ogorod-com.github.io/ogostudio-site/assets/og/og-default.png">
+
+  <link rel="canonical" href="https://ogorod-com.github.io/ogostudio-site/support.html">
+  <link rel="icon" type="image/png" href="assets/logo/ogo-mark.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="assets/js/enhance.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
-    <div class="inner">
-      <a href="index.html" class="site-logo">Ogo <span>Studio</span></a>
-      <nav>
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__brand" aria-label="Ogo Studio home">
+        <img src="assets/logo/ogo-studio-lockup.png" alt="Ogo Studio" width="160" height="160">
+      </a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a href="index.html">Games</a>
+        <a href="about.html">About</a>
         <a href="blog/index.html">Blog</a>
+        <a href="press.html">Press</a>
         <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="eula.html">EULA</a>
-        <a href="credits.html">Credits</a>
       </nav>
+      <div class="site-header__controls">
+        <!-- TRUTH: STUDIO.md Steam app IDs — full game 4628800 -->
+        <a class="btn btn--primary site-header__cta" href="https://store.steampowered.com/app/4628800" target="_blank" rel="noopener noreferrer">Wishlist</a>
+        <button class="site-header__menu" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <div class="page">
-    <h1>Support</h1>
-    <p class="subtitle">Having trouble with one of my games? I'm here to help.</p>
+  <main id="main">
+    <div class="container page-main">
+      <div class="prose">
+        <h1>Support</h1>
+        <p>Having trouble, or want to reach me? Start here.</p>
+      </div>
 
-    <div class="card">
-      <h2 class="mt-0">Frequently asked questions</h2>
+      <!-- TRUTH: GeoFlag CLAUDE.md (Windows 10+, Tauri local save), no microtransactions per ASSETS.md -->
+      <div class="faq">
+        <details>
+          <summary>System requirements</summary>
+          <p>GeoFlag runs on Windows 10 or later, 64-bit.</p>
+        </details>
+        <details>
+          <summary>Where my save lives</summary>
+          <p>Your save lives inside the GeoFlag app folder on your PC. As long as you don't uninstall the game or wipe Windows app data, your progress stays put. If you reinstall or move to a new PC, the save does not transfer automatically.</p>
+        </details>
+        <details>
+          <summary>How do I earn more coins?</summary>
+          <p>Coins are earned through gameplay: completing levels, hitting high accuracy, keeping daily streaks, and unlocking achievements. There are no real-money purchases in GeoFlag.</p>
+        </details>
+        <details>
+          <summary>I found incorrect geographic information</summary>
+          <p>I take geographic accuracy seriously and follow UN naming standards. If you have spotted an error, please tell me using the form below and I will look into it.</p>
+        </details>
+        <details>
+          <summary>How to reach me</summary>
+          <p>Use the form below, email me at ogostudiogames@gmail.com, or find me on the Steam community group. I read everything and reply as soon as I can.</p>
+        </details>
+      </div>
 
-      <h3>My progress was lost. Can I recover it?</h3>
-      <p>Your save lives inside the GeoFlag app folder on your PC. As long as you don't uninstall the game or wipe Windows app data, your progress stays put. If you reinstall or move to a new PC, the save does not transfer automatically.</p>
+      <div class="prose">
+        <h2>Contact me</h2>
+        <p>Fill out the form and I will get back to you as soon as I can.</p>
+      </div>
 
-      <h3>The game won't launch or crashes on startup</h3>
-      <p>Make sure your operating system is up to date. GeoFlag requires Windows 10 or later. If the issue persists, try reinstalling the game and contact me using the form below.</p>
+      <form class="support-form" action="https://formspree.io/f/mzdybylw" method="POST">
+        <div class="field">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="game">Game</label>
+          <select id="game" name="game">
+            <option value="geoflag">GeoFlag</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="bug">Bug report</option>
+            <option value="question">General question</option>
+            <option value="geographic">Geographic accuracy</option>
+            <option value="feature">Feature request</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Send message</button>
+      </form>
 
-      <h3>How do I earn more coins?</h3>
-      <p>Coins are earned through gameplay: completing levels, achieving high accuracy, maintaining daily streaks, and unlocking achievements. There are no real-money purchases in GeoFlag.</p>
-
-      <h3>I found incorrect geographic information</h3>
-      <p>I take geographic accuracy seriously and follow UN naming standards. If you've spotted an error, please let me know using the form below and I'll look into it.</p>
+      <p class="prose fine">You can also reach me through the <a href="https://steamcommunity.com/groups/ogostudio" target="_blank" rel="noopener noreferrer">Steam community group</a> or the GeoFlag community hub on Steam.</p>
     </div>
-
-    <h2>Contact me</h2>
-    <p>Fill out the form below and I'll get back to you as soon as I can.</p>
-
-    <form class="card" action="https://formspree.io/f/mzdybylw" method="POST">
-      <div class="form-group">
-        <label for="email">Your email</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-      </div>
-
-      <div class="form-group">
-        <label for="game">Game</label>
-        <select id="game" name="game">
-          <option value="geoflag">GeoFlag</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="category">Category</label>
-        <select id="category" name="category">
-          <option value="bug">Bug report</option>
-          <option value="question">General question</option>
-          <option value="geographic">Geographic accuracy</option>
-          <option value="feature">Feature request</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Describe what happened or what you need help with..." required></textarea>
-      </div>
-
-      <button type="submit">Send message</button>
-    </form>
-
-    <p style="font-size: 13px; color: var(--text-dim); margin-top: 16px;">You can also reach me through the <a href="https://steamcommunity.com/groups/ogostudio" target="_blank" rel="noopener noreferrer">Steam community group</a> or the GeoFlag community hub on Steam.</p>
-  </div>
+  </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Ogo Studio. All rights reserved.</p>
-    <p>
-      <a href="privacy.html">Privacy policy</a>
-      <a href="eula.html">EULA</a>
-      <a href="credits.html">Credits</a>
-      <a href="support.html">Support</a>
-    </p>
+    <div class="container">
+      <div class="site-footer__brand">
+        <img src="assets/logo/ogo-mark.png" alt="" width="32" height="32">
+        <span>Ogo Studio</span>
+      </div>
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <h2>Play</h2>
+          <ul role="list">
+            <!-- TRUTH: STUDIO.md Steam app IDs — demo 4675110 -->
+            <li><a href="https://store.steampowered.com/app/4675110" target="_blank" rel="noopener noreferrer">Demo on Steam</a></li>
+            <li><a href="https://store.steampowered.com/app/4628800" target="_blank" rel="noopener noreferrer">Wishlist</a></li>
+            <li><a href="https://store.steampowered.com/developer/ogostudio" target="_blank" rel="noopener noreferrer">Dev page</a></li>
+            <li><a href="https://steamcommunity.com/groups/ogostudio" target="_blank" rel="noopener noreferrer">Community</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2>Studio</h2>
+          <ul role="list">
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2>Legal</h2>
+          <ul role="list">
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="eula.html">EULA</a></li>
+            <li><a href="credits.html">Credits</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__legal">&copy; 2026 Ogo Studio</p>
+    </div>
+    <img class="site-footer__beet" src="assets/beet/beet-sleeping.png" alt="" aria-hidden="true">
   </footer>
 
 </body>

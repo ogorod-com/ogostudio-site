@@ -621,3 +621,63 @@ body::before{
   .press-hero__inner{grid-template-columns:1fr;gap:var(--space-5);}
   .press-hero__img img{width:160px;}
 }
+
+/* ==========================================================================
+   === CONTENT PAGES (support, privacy, eula, credits, blog index) ===
+   Single readable column in the shell. Reuses tokens + buttons. Prose capped
+   near 70ch per Brand Book §5.3.
+   ========================================================================== */
+.page-main{display:flex;flex-direction:column;gap:var(--space-6);padding-top:var(--space-8);padding-bottom:var(--space-8);}
+.prose{max-width:70ch;display:flex;flex-direction:column;gap:var(--space-4);}
+.prose h2{margin-top:var(--space-4);}        /* extra separation before a section */
+.prose ul{margin:0;padding-left:var(--space-5);display:flex;flex-direction:column;gap:var(--space-2);}
+.prose a{color:var(--ogo-glow);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+.prose a:hover{opacity:0.78;}
+.prose .fine{font:var(--type-small);color:var(--ogo-text-muted);}
+.legal-updated{font:var(--type-small);color:var(--ogo-text-muted);}
+
+/* Support FAQ: native <details> accordion, zero JS */
+.faq{display:flex;flex-direction:column;gap:var(--space-2);max-width:70ch;}
+.faq details{border:0.5px solid var(--ogo-line);border-radius:var(--radius-panel);background:var(--ui-panel);}
+.faq summary{padding:var(--space-3) var(--space-4);font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:var(--space-4);}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--ogo-text-muted);}
+.faq details[open] summary::after{content:"\2212";}
+.faq details > p{margin:0;padding:0 var(--space-4) var(--space-3);color:var(--ogo-text-muted);}
+
+/* Support contact form */
+.support-form{display:flex;flex-direction:column;gap:var(--space-4);max-width:70ch;}
+.support-form .field{display:flex;flex-direction:column;gap:var(--space-1);}
+.support-form label{font:var(--type-small);color:var(--ogo-text-muted);}
+.support-form input,.support-form select,.support-form textarea{
+  width:100%;background:var(--ui-panel);color:var(--ogo-text);
+  border:0.5px solid var(--ogo-line);border-radius:var(--radius-panel);
+  padding:var(--space-3);font:var(--type-body);
+}
+.support-form textarea{min-height:8rem;resize:vertical;}
+.support-form input:focus,.support-form select:focus,.support-form textarea:focus{outline:2px solid var(--ogo-glow);outline-offset:2px;}
+.support-form button{align-self:flex-start;}
+
+/* Blog index */
+.blog-list{display:flex;flex-direction:column;gap:var(--space-6);max-width:70ch;}
+.blog-post__date{font:var(--type-mono);color:var(--ogo-text-muted);}
+.blog-post__title{font:var(--type-h1);margin-top:var(--space-1);}
+.blog-post__title a{color:var(--ogo-text);text-decoration:none;}
+.blog-post__title a:hover{color:var(--ogo-glow);}
+.blog-post__excerpt{color:var(--ogo-text-muted);margin-top:var(--space-2);max-width:62ch;}
+
+/* 404 — centered, reuses the .close centering approach (margin-inline:auto) */
+.error{
+  min-height:60vh;padding-block:var(--space-8);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:var(--space-5);text-align:center;
+}
+.error .container > *{margin-inline:auto;}
+/* img is display:block (reset), so center it within its full-width wrapper */
+.error__img img{width:240px;height:auto;image-rendering:pixelated;margin-inline:auto;}
+.error__lead{font:var(--type-display);max-width:20ch;}
+
+@media (max-width:767px){
+  .page-main{padding-top:var(--space-6);padding-bottom:var(--space-6);}
+  .error__img img{width:180px;}
+}
